@@ -5,7 +5,7 @@ I recomend start from Flutter documentation . I you have done thoes steps please
 
 - flutter pub get
 - choose your device
-- then on command line
+ then on command line run :
 - flutter run 
 
 
