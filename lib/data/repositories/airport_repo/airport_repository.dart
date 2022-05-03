@@ -17,7 +17,6 @@ class AirportRepository extends GetConnect implements BaseRepository<Airport> {
     for (var airport in airports) {
       await insertAirport(airport);
     }
-
     var airp = await getAirportsFromDB();
     print(airp);
     return airports;

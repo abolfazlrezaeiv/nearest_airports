@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:rezaei_flutter_test_task/constants/routes_names.dart';
 import 'package:rezaei_flutter_test_task/data/repositories/airport_repo/airport_repository.dart';
+import 'package:rezaei_flutter_test_task/interface/routes/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,6 +16,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: AppRouteName.home,
+      getPages: AppPages.pages,
+      smartManagement: SmartManagement.full,
+    );
   }
 }
