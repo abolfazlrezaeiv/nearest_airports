@@ -1,4 +1,4 @@
 class AppRouteName {
+  static const splash = '/';
   static const home = '/home';
-  static const airport = '/airport';
 }

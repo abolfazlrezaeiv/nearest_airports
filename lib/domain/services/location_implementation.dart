@@ -1,30 +1,32 @@
 import 'package:geolocator/geolocator.dart';
+import 'package:get/get.dart';
+import 'package:rezaei_flutter_test_task/constants/app_messages.dart';
 import 'package:rezaei_flutter_test_task/domain/base/base_location_service.dart';
 
-class AppLocation implements AppBaseLocation {
+class AppLocationService implements AppBaseLocationService {
   @override
   Future<Position> getCurrentLocation() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
+    if (!await Geolocator.isLocationServiceEnabled()) {
+      Get.snackbar(AppMessage.empty, AppMessage.requestLocationTurnOnDialog);
     }
-
+    LocationPermission permission;
     permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
+      Get.snackbar(
+          AppMessage.empty, AppMessage.requestLocationPermissionDialogMessage);
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
+        Get.snackbar(AppMessage.empty,
+            AppMessage.requestLocationPermissionDialogMessage);
+        permission = await Geolocator.requestPermission();
       }
     }
-
     if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
+      Get.snackbar(
+          AppMessage.empty, AppMessage.requestLocationPermissionDialogMessage);
+      permission = await Geolocator.requestPermission();
     }
-
-    return await Geolocator.getCurrentPosition();
+    return Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
   }
 }

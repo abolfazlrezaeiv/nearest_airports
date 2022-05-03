@@ -32,12 +32,13 @@ dependencies:
   path: ^1.8.1
   sqflite: ^2.0.2+1
   get: ^4.6.1
-  http: ^0.13.4
   geolocator: ^8.2.0
+  flutter_latlong: ^1.0.3
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  google_maps_flutter: ^2.1.4
 
 dev_dependencies:
   # The "flutter_lints" package below contains a set of recommended lints to

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_latlong/flutter_latlong.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart' as googlemap;
@@ -55,14 +54,8 @@ class HomePageController extends GetxController {
     update();
   }
 
-  Future<void> findNearestTwoAirports() async {
+  findNearestTwoAirports() async {
     markers.clear();
-    Get.dialog(
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [CircularProgressIndicator()],
-      ),
-    );
     var allAirports = await airportRepository.readAirportsFromDB();
     Distance distance = const Distance();
     var distances = [];
@@ -93,7 +86,6 @@ class HomePageController extends GetxController {
     }
     nearestAirports.add(allAirports[indexOfSecond]);
     addMarkersToMap(nearestAirports);
-    Get.back();
     update();
   }
 }

@@ -1,7 +1,7 @@
 class Airport {
   final String? code;
-  final String? lat;
-  final String? lon;
+  final double? lat;
+  final double? lon;
   final String? name;
   final String? city;
   final String? state;
@@ -41,8 +41,8 @@ class Airport {
 
   Airport.fromJson(Map<String, dynamic> json)
       : code = json['code'],
-        lat = json['lat'],
-        lon = json['lon'],
+        lat = double.parse(json['lat']),
+        lon = double.parse(json['lon']),
         name = json['name'],
         city = json['city'],
         state = json['state'],

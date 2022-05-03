@@ -14,22 +14,24 @@ class AirportRepository extends GetConnect implements BaseRepository<Airport> {
     var jsonResponse = jsonDecode(response.body);
     var airports = List<Airport>.from(
         jsonResponse.map((model) => Airport.fromJson(model)));
-    for (var airport in airports) {
-      await insertAirport(airport);
-    }
-    var airp = await getAirportsFromDB();
-    print(airp);
+    writeAllAirportsToDB(airports);
     return airports;
   }
 
-  Future<List<Airport>> getAirportsFromDB() async {
+  Future<List<Airport>> readAirportsFromDB() async {
     final db = await getDatabase();
     final List<Map<String, dynamic>> maps =
         await db.query(DatabaseQuery.airportTable);
     return List.generate(maps.length, (index) => Airport.fromJson(maps[index]));
   }
 
-  Future<void> insertAirport(Airport airport) async {
+  Future<void> writeAllAirportsToDB(List<Airport> airports) async {
+    for (var airport in airports) {
+      await writeAirport(airport);
+    }
+  }
+
+  Future<void> writeAirport(Airport airport) async {
     final db = await getDatabase();
     await db.insert(
       DatabaseQuery.airportTable,

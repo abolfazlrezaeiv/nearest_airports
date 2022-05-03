@@ -1,3 +1,3 @@
-abstract class AppBaseLocation {
+abstract class AppBaseLocationService {
   getCurrentLocation();
 }
