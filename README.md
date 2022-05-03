@@ -1,16 +1,11 @@
-# rezaei_flutter_test_task
+find nearest 2 airports to your location
 
-A new Flutter project.
+to run this project you need to install Flutter sdk and and some tools for your desired code editor
+I recomend start from Flutter documentation . I you have done thoes steps please run commands bellow in your command line
 
-## Getting Started
+flutter pub get
+- choose your device
+then on command line
+flutter run 
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
