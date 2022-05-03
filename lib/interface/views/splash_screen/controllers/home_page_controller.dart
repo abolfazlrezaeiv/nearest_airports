@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart' as googlemap;
 import 'package:rezaei_flutter_test_task/data/repositories/airport_repo/airport_repository.dart';
 import 'package:rezaei_flutter_test_task/domain/models/airport_model.dart';
-import 'package:rezaei_flutter_test_task/domain/services/location_implementation.dart';
+import 'package:rezaei_flutter_test_task/domain/services/location_service_imp.dart';
 
 class HomePageController extends GetxController {
   HomePageController(this.locationService, this.airportRepository);
