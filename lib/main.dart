@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:rezaei_flutter_test_task/data/repositories/airport_repo/airport_repository.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  var airRepo = AirportRepository();
+  airRepo.getAll();
   runApp(const MyApp());
 }
 
