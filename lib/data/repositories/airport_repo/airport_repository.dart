@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:path/path.dart';
 import 'package:rezaei_flutter_test_task/constants/database_queries.dart';
 import 'package:rezaei_flutter_test_task/constants/urls.dart';
-import 'package:rezaei_flutter_test_task/domain/base/base_repository.dart';
+import 'package:rezaei_flutter_test_task/domain/interfaces/data_repository.dart';
 import 'package:rezaei_flutter_test_task/domain/models/airport_model.dart';
 import 'package:sqflite/sqflite.dart';
 
