@@ -6,23 +6,8 @@ import 'package:rezaei_flutter_test_task/constants/app_paddings.dart';
 import 'package:rezaei_flutter_test_task/constants/app_sizes.dart';
 import 'package:rezaei_flutter_test_task/ui/views/home/controllers/home_page_controller.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends GetView<HomePageController> {
   const HomePage({Key? key}) : super(key: key);
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  HomePageController homeController = Get.find();
-  late GoogleMapController mapController;
-
-  void _onMapCreated(GoogleMapController controller) async {
-    mapController = controller;
-    await homeController.getCurrentLocation();
-    mapController.animateCamera(
-        CameraUpdate.newLatLng(homeController.currentLocaion.value));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +15,12 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: [
           Obx(() => GoogleMap(
-                onMapCreated: _onMapCreated,
+                onMapCreated: controller.onMapCreated,
                 initialCameraPosition: CameraPosition(
-                  target: homeController.currentLocaion.value,
+                  target: controller.currentLocaion.value,
                   zoom: AppSize.s07,
                 ),
-                markers: homeController.markers,
+                markers: controller.markers,
               )),
           Align(
             alignment: Alignment.bottomCenter,
@@ -43,10 +28,10 @@ class _HomePageState extends State<HomePage> {
               children: [
                 MaterialButton(
                   onPressed: () async {
-                    await homeController.getCurrentLocation();
-                    await mapController.animateCamera(
+                    await controller.getCurrentLocation();
+                    await controller.mapController.animateCamera(
                       CameraUpdate.newLatLng(
-                        homeController.currentLocaion.value,
+                        controller.currentLocaion.value,
                       ),
                     );
                   },
@@ -70,11 +55,11 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: MaterialButton(
                     onPressed: () async {
-                      await homeController.findNearestTwoAirports();
-                      await homeController.getCurrentLocation();
-                      await mapController.animateCamera(
+                      await controller.findNearestTwoAirports();
+                      await controller.getCurrentLocation();
+                      await controller.mapController.animateCamera(
                         CameraUpdate.newLatLng(
-                          homeController.currentLocaion.value,
+                          controller.currentLocaion.value,
                         ),
                       );
                     },

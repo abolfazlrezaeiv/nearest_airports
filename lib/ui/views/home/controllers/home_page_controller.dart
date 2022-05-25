@@ -21,6 +21,15 @@ class HomePageController extends GetxController {
   final RxSet<googlemap.Marker> markers = <googlemap.Marker>{}.obs;
   RxList<Airport> nearestAirports = <Airport>[].obs;
 
+  late googlemap.GoogleMapController mapController;
+
+  void onMapCreated(googlemap.GoogleMapController controller) async {
+    mapController = controller;
+    await getCurrentLocation();
+    mapController
+        .animateCamera(googlemap.CameraUpdate.newLatLng(currentLocaion.value));
+  }
+
   getCurrentLocation() async {
     var position = await locationService.getCurrentLocation();
     currentLocaion.value =
@@ -28,7 +37,7 @@ class HomePageController extends GetxController {
     update();
   }
 
-  addMarkersToMap(List<Airport> twoAirports) {
+  void addMarkersToMap(List<Airport> twoAirports) {
     markers.add(googlemap.Marker(
       markerId: googlemap.MarkerId(
           googlemap.LatLng(twoAirports[0].lat!, twoAirports[0].lon!)
@@ -63,7 +72,7 @@ class HomePageController extends GetxController {
         children: const [CircularProgressIndicator()],
       ),
     );
-    var allAirports = await airportRepository.readAirportsFromDB();
+    var allAirports = await airportRepository.getAirports();
     Distance distance = const Distance();
     var distances = [];
     for (var index = 0; index < allAirports.length; index++) {

@@ -8,6 +8,12 @@ class SplashPageController extends GetxController {
 
   final AirportRepository airportRepository;
 
+  @override
+  void onInit() async {
+    getData();
+    super.onInit();
+  }
+
   getData() {
     try {
       airportRepository.getAll().whenComplete(
