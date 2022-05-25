@@ -4,7 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:rezaei_flutter_test_task/constants/app_messages.dart';
 import 'package:rezaei_flutter_test_task/constants/app_paddings.dart';
 import 'package:rezaei_flutter_test_task/constants/app_sizes.dart';
-import 'package:rezaei_flutter_test_task/interface/views/home/controllers/home_page_controller.dart';
+import 'package:rezaei_flutter_test_task/ui/views/home/controllers/home_page_controller.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

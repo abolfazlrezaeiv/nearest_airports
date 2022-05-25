@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rezaei_flutter_test_task/constants/routes_names.dart';
-import 'package:rezaei_flutter_test_task/interface/routes/app_routes.dart';
+import 'package:rezaei_flutter_test_task/ui/routes/app_routes.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

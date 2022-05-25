@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:rezaei_flutter_test_task/constants/app_messages.dart';
 import 'package:rezaei_flutter_test_task/constants/app_paddings.dart';
 import 'package:rezaei_flutter_test_task/constants/app_sizes.dart';
-import 'package:rezaei_flutter_test_task/interface/views/splash_screen/controllers/splash_page_controller.dart';
+import 'package:rezaei_flutter_test_task/ui/views/splash_screen/controllers/splash_page_controller.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

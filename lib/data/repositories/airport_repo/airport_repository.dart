@@ -7,7 +7,7 @@ import 'package:rezaei_flutter_test_task/domain/base/base_repository.dart';
 import 'package:rezaei_flutter_test_task/domain/models/airport_model.dart';
 import 'package:sqflite/sqflite.dart';
 
-class AirportRepository extends GetConnect implements BaseRepository<Airport> {
+class AirportRepository extends GetConnect implements DateRepository<Airport> {
   @override
   Future<List<Airport>> getAll() async {
     var response = await get(AppUrls.airportApiUrl);
