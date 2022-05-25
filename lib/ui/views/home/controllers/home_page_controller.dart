@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_latlong/flutter_latlong.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart' as googlemap;
-import 'package:rezaei_flutter_test_task/data/repositories/airport_repo/airport_repository.dart';
+import 'package:rezaei_flutter_test_task/data/repositories/airport_repository.dart';
 import 'package:rezaei_flutter_test_task/data/services/location_service.dart';
 import 'package:rezaei_flutter_test_task/domain/models/airport_model.dart';
 
@@ -64,7 +64,7 @@ class HomePageController extends GetxController {
     update();
   }
 
-  Future<void> findNearestTwoAirports() async {
+  Future<void> findNearestAirports() async {
     markers.clear();
     Get.dialog(
       Column(

@@ -55,7 +55,7 @@ class HomePage extends GetView<HomePageController> {
                 Expanded(
                   child: MaterialButton(
                     onPressed: () async {
-                      await controller.findNearestTwoAirports();
+                      await controller.findNearestAirports();
                       await controller.getCurrentLocation();
                       await controller.mapController.animateCamera(
                         CameraUpdate.newLatLng(
