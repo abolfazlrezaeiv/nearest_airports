@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:rezaei_flutter_test_task/constants/app_messages.dart';
 import 'package:rezaei_flutter_test_task/constants/routes_names.dart';
-import 'package:rezaei_flutter_test_task/data/repositories/airport_repo/airport_repository.dart';
+import 'package:rezaei_flutter_test_task/data/repositories/airport_repository.dart';
 
 class SplashPageController extends GetxController {
   SplashPageController(this.airportRepository);
